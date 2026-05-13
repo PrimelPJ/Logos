@@ -2,10 +2,6 @@
 
 **A Semantic Consensus Protocol for Heterogeneous Distributed Systems**
 
-[![Go Version](https://img.shields.io/badge/go-1.22+-00ADD8?style=flat&logo=go)](https://golang.org)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-research%20prototype-orange)]()
-
 ---
 
 > *"Traditional consensus asks: do all nodes hold the same bytes?
