@@ -39,26 +39,26 @@ A **reconciliation phase** then aligns byte-level state after commit, using one 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         LogosNode                                │
+│                         LogosNode                                   │
 │                                                                     │
-│  ┌─────────────┐   ┌──────────────────┐   ┌─────────────────────┐  │
-│  │  Raft Core  │   │  Semantic Layer  │   │   Drift Monitor     │  │
-│  │             │◄──┤                  │   │                     │  │
-│  │  - Leader   │   │  - Embedder      │   │  - Fingerprint      │  │
-│  │    election │   │  - Similarity    │   │    sampling         │  │
-│  │  - Log repl │   │    index         │   │  - Angular drift    │  │
-│  │  - Commit   │   │  - Centroid      │   │    computation      │  │
-│  │    index    │   │    computation   │   │  - Outlier detect   │  │
-│  └──────┬──────┘   └─────────┬────────┘   └──────────┬──────────┘  │
-│         │                    │                        │             │
-│  ┌──────▼──────────────────▼─┐           ┌──────────▼──────────┐  │
-│  │       FuzzyQuorum          │           │    Reconciler       │  │
-│  │                            │           │                     │  │
-│  │  Builds similarity graph   │           │  StrategyLeader     │  │
-│  │  Finds largest coherent    │           │  StrategyMerge      │  │
-│  │  cluster via BFS           │           │  StrategyVector     │  │
-│  │  Returns consensus vector  │           │  MajorityMajority   │  │
-│  └────────────────────────────┘           └─────────────────────┘  │
+│  ┌─────────────┐   ┌──────────────────┐   ┌─────────────────────┐   │
+│  │  Raft Core  │   │  Semantic Layer  │   │   Drift Monitor     │   │
+│  │             │◄──┤                  │   │                     │   │
+│  │  - Leader   │   │  - Embedder      │   │  - Fingerprint      │   │
+│  │    election │   │  - Similarity    │   │    sampling         │   │
+│  │  - Log repl │   │    index         │   │  - Angular drift    │   │
+│  │  - Commit   │   │  - Centroid      │   │    computation      │   │
+│  │    index    │   │    computation   │   │  - Outlier detect   │   │
+│  └──────┬──────┘   └─────────┬────────┘   └──────────┬──────────┘   │
+│         │                    │                       │              │
+│  ┌──────▼──────────────────▼─┐            ┌──────────▼──────────┐   │
+│  │       FuzzyQuorum          │           │    Reconciler       │   │
+│  │                            │           │                     │   │
+│  │  Builds similarity graph   │           │  StrategyLeader     │   │
+│  │  Finds largest coherent    │           │  StrategyMerge      │   │
+│  │  cluster via BFS           │           │  StrategyVector     │   │
+│  │  Returns consensus vector  │           │  MajorityMajority   │   │
+│  └────────────────────────────┘           └─────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
